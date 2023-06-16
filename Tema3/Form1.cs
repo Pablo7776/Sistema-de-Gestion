@@ -64,22 +64,24 @@ namespace Tema3
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (teslas.Count > 0)
-            {
+
+            //ESTO ES LO QUE NO FUNCIONA!!!!!!!!!!!!!!!!!!!!
+
+            //if (teslas.Count > 0)
+            //{
                 
                 
 
 
-                foreach (Tesla tesla in teslas)
-                {
-                    dataGridView1.CurrentRow.Selected = true;
-                    tesla.Year = dataGridView1.Rows[e.RowIndex].Cells["Year"];
-                }
-            }
-            else
-            {
-                MessageBox.Show("No hay Teslas registrados.");
-            }
+            //    foreach (Tesla tesla in teslas)
+            //    {
+            //        tesla.Year = dataGridView1.Rows[e.RowIndex].Cells["Year"].FormattedValue.ToString();
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("No hay Teslas registrados.");
+            //}
         }
     }
 
