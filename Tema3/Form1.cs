@@ -28,7 +28,16 @@ namespace Tema3
             Tesla tesla = new Tesla(year, mileage);
             teslas.Add(tesla);
 
+            // Actualizar el contenido del DataGridView
+            ActualizarDataGridView();
+
             MessageBox.Show("Tesla agregado correctamente.");
+        }
+
+        private void ActualizarDataGridView()
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = teslas;
         }
 
         //private void btnEliminarTesla_Click(object sender, EventArgs e)
@@ -53,8 +62,13 @@ namespace Tema3
                 foreach (Tesla tesla in teslas)
                 {
                     infoVehiculos += $"Año: {tesla.Year} - Kilometraje: {tesla.Mileage}\n";
+
+
                 }
+
+
                 MessageBox.Show(infoVehiculos);
+                
             }
             else
             {
@@ -64,13 +78,17 @@ namespace Tema3
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+
+
+
 
             //ESTO ES LO QUE NO FUNCIONA!!!!!!!!!!!!!!!!!!!!
 
             //if (teslas.Count > 0)
             //{
-                
-                
+
+
 
 
             //    foreach (Tesla tesla in teslas)
@@ -82,6 +100,22 @@ namespace Tema3
             //{
             //    MessageBox.Show("No hay Teslas registrados.");
             //}
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // Configurar las columnas del DataGridView
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                DataPropertyName = "Year",
+                HeaderText = "Year"
+            });
+            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                DataPropertyName = "Mileage",
+                HeaderText = "Mileage"
+            });
         }
     }
 
