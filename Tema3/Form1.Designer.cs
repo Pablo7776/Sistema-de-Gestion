@@ -40,6 +40,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
             this.teslaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teslaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.teslaBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
@@ -54,7 +55,7 @@
             // Button1
             // 
             this.Button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Button1.Location = new System.Drawing.Point(85, 392);
+            this.Button1.Location = new System.Drawing.Point(63, 566);
             this.Button1.Name = "Button1";
             this.Button1.Size = new System.Drawing.Size(137, 50);
             this.Button1.TabIndex = 0;
@@ -66,7 +67,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(329, 15);
+            this.label1.Location = new System.Drawing.Point(342, 90);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 20);
             this.label1.TabIndex = 1;
@@ -76,7 +77,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(253, 61);
+            this.label2.Location = new System.Drawing.Point(250, 141);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(130, 20);
             this.label2.TabIndex = 2;
@@ -84,14 +85,14 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(411, 12);
+            this.textBox1.Location = new System.Drawing.Point(411, 87);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(337, 26);
             this.textBox1.TabIndex = 4;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(411, 61);
+            this.textBox2.Location = new System.Drawing.Point(411, 141);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(337, 26);
             this.textBox2.TabIndex = 5;
@@ -99,7 +100,7 @@
             // button2
             // 
             this.button2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button2.Location = new System.Drawing.Point(480, 392);
+            this.button2.Location = new System.Drawing.Point(519, 574);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(211, 52);
             this.button2.TabIndex = 6;
@@ -112,7 +113,7 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.DataSource = this.teslaBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(38, 163);
+            this.dataGridView1.Location = new System.Drawing.Point(38, 350);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
@@ -128,7 +129,7 @@
             "Modelo X",
             "Modelo S",
             "Cybertruck"});
-            this.comboBox1.Location = new System.Drawing.Point(22, 12);
+            this.comboBox1.Location = new System.Drawing.Point(411, 29);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(207, 28);
             this.comboBox1.TabIndex = 8;
@@ -140,12 +141,13 @@
             this.tabControl1.Location = new System.Drawing.Point(21, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(767, 374);
+            this.tabControl1.Size = new System.Drawing.Size(767, 548);
             this.tabControl1.TabIndex = 9;
             // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.DarkKhaki;
+            this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.comboBox1);
             this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Controls.Add(this.textBox1);
@@ -155,7 +157,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(759, 341);
+            this.tabPage1.Size = new System.Drawing.Size(759, 515);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "TESLA";
             // 
@@ -164,10 +166,19 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(759, 341);
+            this.tabPage2.Size = new System.Drawing.Size(759, 515);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "SPACEX";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(314, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 20);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "modelo";
             // 
             // teslaBindingSource
             // 
@@ -185,7 +196,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 638);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.Button1);
@@ -219,6 +230,7 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.BindingSource teslaBindingSource1;
         private System.Windows.Forms.BindingSource teslaBindingSource2;
+        private System.Windows.Forms.Label label3;
     }
 }
 

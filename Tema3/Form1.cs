@@ -108,6 +108,11 @@ namespace Tema3
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
             {
+                DataPropertyName = "Modelo",
+                HeaderText = "Modelo"
+            });
+            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
+            {
                 DataPropertyName = "Year",
                 HeaderText = "Year"
             });
