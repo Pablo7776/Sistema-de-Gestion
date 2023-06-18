@@ -22,16 +22,27 @@ namespace Tema3
 
         private void button1(object sender, EventArgs e)
         {
+            string modelo = comboBox1.Text;
             int year = Convert.ToInt32(textBox1.Text);
             int mileage = Convert.ToInt32(textBox2.Text);
+            string color = textBox3.Text;
+            string dueño = textBox4.Text;
 
-            Tesla tesla = new Tesla(year, mileage);
+            Tesla tesla = new Tesla(modelo, year, mileage, color, dueño);
             teslas.Add(tesla);
 
             // Actualizar el contenido del DataGridView
             ActualizarDataGridView();
 
+
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+
             MessageBox.Show("Tesla agregado correctamente.");
+
+
         }
 
         private void ActualizarDataGridView()
@@ -104,35 +115,41 @@ namespace Tema3
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Configurar las columnas del DataGridView
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
-            {
-                DataPropertyName = "Modelo",
-                HeaderText = "Modelo"
-            });
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
-            {
-                DataPropertyName = "Year",
-                HeaderText = "Year"
-            });
-            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
-            {
-                DataPropertyName = "Mileage",
-                HeaderText = "Mileage"
-            });
+            //// Configurar las columnas del DataGridView
+            //dataGridView1.AutoGenerateColumns = false;
+            //dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
+            //{
+            //    DataPropertyName = "Modelo",
+            //    HeaderText = "Modelo"
+            //});
+            //dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
+            //{
+            //    DataPropertyName = "Year",
+            //    HeaderText = "Year"
+            //});
+            //dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
+            //{
+            //    DataPropertyName = "Mileage",
+            //    HeaderText = "Mileage"
+            //});
         }
     }
 
     public class Tesla
     {
+        public string Modelo { get; set; }
         public int Year { get; set; }
         public int Mileage { get; set; }
+        public string Color { get; set; }
+        public string Dueño { get; set; }
 
-        public Tesla(int year, int mileage)
+        public Tesla(string modelo, int year, int mileage, string color,string dueño )
         {
+            Modelo = modelo;
             Year = year;
             Mileage = mileage;
+            Color = color;
+            Dueño = dueño;
         }
     }
 }
