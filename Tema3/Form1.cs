@@ -1,12 +1,15 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.LinkLabel;
 
 namespace Tema3
 {
@@ -19,6 +22,13 @@ namespace Tema3
             InitializeComponent();
             teslas = new List<Tesla>();
         }
+
+
+        //tuto parta que aparezca un boton solo en determinadas circunstancias:
+        //https://www.youtube.com/watch?v=w6wndUVgyLI
+
+        // tut para personalizar:
+        //https://www.youtube.com/watch?v=HDcdX2endE8
 
         private void button1(object sender, EventArgs e)
         {
@@ -51,19 +61,36 @@ namespace Tema3
             dataGridView1.DataSource = teslas;
         }
 
-        //private void btnEliminarTesla_Click(object sender, EventArgs e)
-        //{
-        //    if (listBox1.SelectedItem != null)
-        //    {
-        //        Tesla selectedTesla = (Tesla)listBox1.SelectedItem;
-        //        teslas.Remove(selectedTesla);
-        //        MessageBox.Show("Tesla eliminado correctamente.");
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Selecciona un Tesla para eliminar.");
-        //    }
-        //}
+        private void btnEliminarTesla_Click(object sender, EventArgs e)
+        {
+            if (teslas.Count > 0)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    int rowIndex = dataGridView1.SelectedRows[0].Index;
+                    if (rowIndex != -1)
+                    {
+                        teslas.RemoveAt(rowIndex);
+                        ActualizarDataGridView();
+                        MessageBox.Show("Tesla eliminado correctamente.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Selecciona un Tesla para eliminar.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("ahun no hay sestlas.");
+            }
+        }
+      
+
+
+
+
+
 
         private void btnMostrar_Click(object sender, EventArgs e)
         {
@@ -90,48 +117,11 @@ namespace Tema3
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
-
-
-
-
-            //ESTO ES LO QUE NO FUNCIONA!!!!!!!!!!!!!!!!!!!!
-
-            //if (teslas.Count > 0)
-            //{
-
-
-
-
-            //    foreach (Tesla tesla in teslas)
-            //    {
-            //        tesla.Year = dataGridView1.Rows[e.RowIndex].Cells["Year"].FormattedValue.ToString();
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("No hay Teslas registrados.");
-            //}
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //// Configurar las columnas del DataGridView
-            //dataGridView1.AutoGenerateColumns = false;
-            //dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
-            //{
-            //    DataPropertyName = "Modelo",
-            //    HeaderText = "Modelo"
-            //});
-            //dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
-            //{
-            //    DataPropertyName = "Year",
-            //    HeaderText = "Year"
-            //});
-            //dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
-            //{
-            //    DataPropertyName = "Mileage",
-            //    HeaderText = "Mileage"
-            //});
+
         }
     }
 
