@@ -17,11 +17,13 @@ namespace Tema3
     public partial class Form1 : Form
     {
         private List<Producto> teslas;
+        private List<Producto> SpaceXs;
 
         public Form1()
         {
             InitializeComponent();
             teslas = new List<Producto>();
+            SpaceXs = new List<Producto>();
         }
 
 
@@ -31,12 +33,12 @@ namespace Tema3
             if (comboBox1.Text == "Modelo X")
             {
 
-                TeslaModelX tesla = new TeslaModelX { Modelo = comboBox1.Text, Año = Convert.ToInt32(textBox1.Text), UnidadDeUso = Convert.ToInt32(textBox2.Text), Color=textBox3.Text,Dueño=textBox4.Text, CargaRestante = 0 };
+                TeslaModelX tesla = new TeslaModelX { Modelo = comboBox1.Text, Año = Convert.ToInt32(textBox1.Text), UnidadDeUso = Convert.ToInt32(textBox2.Text), Color = textBox3.Text, Dueño = textBox4.Text, CargaRestante = 0 };
                 tesla.ObtenerValor(); // muestra la carga restante (no solo del teslaX, tambien del tesla S y del cybertruck)
-                _=tesla.Autonomia;    // muestra la autonomia (no solo del teslaX, tambien del tesla S y del cybertruck)
+                _ = tesla.Autonomia;    // muestra la autonomia (no solo del teslaX, tambien del tesla S y del cybertruck)
                 teslas.Add(tesla);    // agrega el tesla a la lista "teslas"
             }
-            else if(comboBox1.Text == "Modelo S")
+            else if (comboBox1.Text == "Modelo S")
             {
                 TeslaModelS tesla = new TeslaModelS { Modelo = comboBox1.Text, Año = Convert.ToInt32(textBox1.Text), UnidadDeUso = Convert.ToInt32(textBox2.Text), Color = textBox3.Text, Dueño = textBox4.Text, CargaRestante = 0 };
                 teslas.Add(tesla);
@@ -48,25 +50,57 @@ namespace Tema3
                 teslas.Add(tesla);
 
             }
-            
 
-            // Actualizar el contenido del DataGridView
+
+            // Actualizar el contenido del DataGridView y resetea los TextBox
             ActualizarDataGridView();
 
-            textBox1.Clear();
-            textBox2.Clear();
-            textBox3.Clear();
-            textBox4.Clear();
+
 
             MessageBox.Show("Tesla agregado correctamente.");
 
 
         }
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (comboBox2.Text == "Starship")
+            {
+
+                SpaceXStarship spaceX = new SpaceXStarship { Modelo = comboBox2.Text, Año = Convert.ToInt32(textBox7.Text), UnidadDeUso = Convert.ToInt32(textBox8.Text), Color = textBox6.Text, Dueño = textBox5.Text, CargaRestante = 0 };
+                spaceX.ObtenerValor(); // muestra la carga restante (no solo del teslaX, tambien del tesla S y del cybertruck)
+                _ = spaceX.Autonomia;    // muestra la autonomia (no solo del teslaX, tambien del tesla S y del cybertruck)
+                SpaceXs.Add(spaceX);    // agrega el tesla a la lista "teslas"
+            }
+            else if (comboBox2.Text == "Falcon 9")
+            {
+                Falcon9 spaceX = new Falcon9 { Modelo = comboBox2.Text, Año = Convert.ToInt32(textBox7.Text), UnidadDeUso = Convert.ToInt32(textBox8.Text), Color = textBox6.Text, Dueño = textBox5.Text, CargaRestante = 0 };
+                SpaceXs.Add(spaceX);
+            }
+
+
+            // Actualizar el contenido del DataGridView y resetea los TextBox
+            ActualizarDataGridView();
+
+
+
+            MessageBox.Show("SpaceX agregado correctamente.");
+        }
+
 
         private void ActualizarDataGridView()
         {
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = teslas;
+            dataGridView2.DataSource = null;
+            dataGridView2.DataSource = SpaceXs;
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
+            textBox7.Clear();
+            textBox8.Clear();
         }
 
         private void btnEliminarTesla_Click(object sender, EventArgs e)
@@ -137,13 +171,15 @@ namespace Tema3
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+
+
     }
 
     public abstract class Producto
@@ -157,7 +193,7 @@ namespace Tema3
         public int Service { get; set; }
 
 
-        public  double CargaRestante
+        public double CargaRestante
         {
             get
             {
@@ -179,7 +215,7 @@ namespace Tema3
     /// </summary>
     public class TeslaModelX : Producto
     {
-        public  TeslaModelX()
+        public TeslaModelX()
         {
             Autonomia = 560;
             //Service = 1000;
@@ -227,6 +263,49 @@ namespace Tema3
 
     }
 
+    public class SpaceXStarship : Producto
+    {
+        public SpaceXStarship()
+        {
+            //UnidadDeUso = 0;
+            Autonomia = 500;
+            //Service = 1000;
+        }
+
+        public double ObtenerValor()
+        {
+            return CargaRestante;
+        }
+
+        //public override string ObtenerInformacion()
+        //{
+        //    return $"Producto: SpaceX Starship\n Año: {Año}\n Horas de vuelo: {UnidadDeUso} hs\n Color: {Color}\n Dueño: {Dueño}\n Autonomia: {Autonomia} hs\n Service: cada {Service} hs Carga/Combustible: {CargaRestante} %";
+        //}
+    }
+
+    public class Falcon9 : Producto
+    {
+        public Falcon9()
+        {
+            UnidadDeUso = 0;
+            Autonomia = 200;
+            Service = 400;
+        }
+
+        public double ObtenerValor()
+        {
+            return CargaRestante;
+        }
+
+        //public override string ObtenerInformacion()
+        //{
+        //    return $"Producto: SpaceX Falcon 9\n Año: {Año}\n Horas de vuelo: {UnidadDeUso} hs\n Color: {Color}\n Dueño: {Dueño}\n Autonomia: {Autonomia} hs\n Service: cada {Service} hs Carga/Combustible: {CargaRestante} %";
+        //}
+
+
+
+
+    }
+
+
 }
-
-

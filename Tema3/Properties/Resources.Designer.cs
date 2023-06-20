@@ -63,6 +63,16 @@ namespace Tema3.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap spacex {
+            get {
+                object obj = ResourceManager.GetObject("spacex", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Tesla {
             get {
                 object obj = ResourceManager.GetObject("Tesla", resourceCulture);
