@@ -120,19 +120,61 @@
   <metadata name="Modelo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="Año.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="Dueño.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="teslaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>62, 60</value>
+  <metadata name="kilometros.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
+  <metadata name="CargaRestante.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Autonomia.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="teslaBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>822, 746</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAMIAAAEDCAMAAABQ/CumAAAABGdBTUEAALGPC/xhBQAAAHhQTFRFAAAA
+        ////6enpfHx8enp6r6+va2tr8PDwd3d3paWl4ODgOTk51dXVdHR0NDQ0s7OzhYWFvr6+RUVFZGRkXFxc
+        HR0d2traxsbGJiYmjIyMPj4+09PT+fn5Ly8vnZ2d7OzsFRUVUFBQlJSUVlZWSEhImJiYDQ0NGxsb5qrH
+        AgAABONJREFUeF7t3Ot2okoQBWBboojRAeMFr3jJZOb93/AAtcGmYZyYzAJqnf39CRSIXZFLd9MwICIi
+        IiIiIiIiIiIiIiIiIiIiIqL+extHSRgfpkPfPxpzPPrD6SEOk2j8hhV67DRPFtO01A9M42R+wuo9s56M
+        NijlJ2xGkzU+2A/baOGjbE/wF9EWG+jYcnRGmb7gPFpiM52ZxCiL7TjNjt356vp6Wl9S69PrdTWPPkZx
+        43EST7CxDsxr5ffjYLLH0j/YT4K4ttfFYyxt1VuIry/Mgif2iWUww8cKYesn3Hd8s5gG74gPfq+iYHGY
+        +hvMlzb+9LAIotUF84P3YIqPi3ITbRnii405RAjto9Aq1AJRWCCc2oRRsbdFB8SMGSLUnrl88cyT2Wvi
+        7hnmJkvEDcHSLLnKEg8fnMtsm9KfwU9kr/CazkvGrPKFuRVCVbHkf0nS4/ucT7ZrvJHD19oXXOWVa4tA
+        3UGyWG46OSdl3pv//+BjrcHDa/ei9ePYsrsf081msl7tMHEMixNC6wKU4IFRtt4IMw8E+QY78Imq6Ut6
+        sGPyAfxaXXB2pOMmHiW3XVScJzP7PSZSsbfbfQRhXL2kpVdGbK4TVmGGu3vV+QOxlG8dyvddfmsfRrUL
+        ebvKi27liBwj6MDFTEQImhCBzuAqvcOsWEvQhaWwk2BnFwRL9kOUVwCQ0jnclbJdzKlJdWV/qO0Mjeeq
+        GAsLoTn8pXHRor1VHcq5jYmce/Jf9SeBBuWxauugLvoNV5S6oqfdR3+CUldgkRYNddNOr8Ff0FAJ78n5
+        89MaarGVhqgCuGjb3BNv351QbguW6IFy3x2xQA+3TdBls+aLrK4vkbdBVan1faHPTJFa59dPLFAEJS8h
+        rIlTxWi/1/f7nH5Kt72jgVPFSBDWxOkB60Mr/1lWF1imJ/dnn4OyA4K6VHortbV3RKWK0XmX3ZdYHatu
+        b58WS5Q+p629Iy4ofQ4xbawBF253qhbWjZIDQtpYHav62jvC6ljV194RP1H+VK/7sB9B+VMI6FOOeNPY
+        3hFlx6rG9o5IkIH5QECf8t6txvaOKMfw9GtY7VOQgd4TUtmx2vEIhW9BFUNne0dgjEJnI6b+AYxmrQwf
+        0UZSwIxOeceq1vaOyDtW9VYvMnnHamdjB/+JSZaCruEjrtcshVfMKJWlgEmt0iqGzu7Uu4W+4SOum77h
+        I66lMZ0/9vVNv4z5hUm1jvqGj7g2mts7ItTc3hE7nfd3bCud93dsl/JpQiIiIiIiIiIi+p9xXhEhne+V
+        R/Fwj7PyBgDp4E4/m/+9w2LR2sClykteUNytNTa46Am2X2eD1+/UU7CfHmux//Xqed7NmN2L590fV5u/
+        CK+8JzIz8XguEGlIYXBJNybaHqux//vDLbP6KOGGFLrzZswPTGbwjxT4HdJfYY6IF/3OQ/UUxl7+200y
+        nqzUFieFyjMj2G8qr3aSAcP1FCrPy7Q7qthJwc6huKVQOSPJGIB6CpVTWbsDBdwUHro8SqEYZnLqdQpb
+        DSkE4agUFoPxTkEo0r2sTCEJYJSH7in86DiFyvNTOMFX3gxTplCS27kdprA/nysvedkN4TzFlXh/RCTj
+        S75LH/PD80xuYcV+MaL75GMlIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiat1g8B82wS2O
+        1o/LMAAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="teslaBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>710, 60</value>
+    <value>9122, 746</value>
   </metadata>
   <metadata name="teslaBindingSource2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1382, 60</value>
+    <value>17785, 746</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>222</value>
+    <value>190</value>
   </metadata>
 </root>

@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Remoting.Lifetime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,35 +16,42 @@ namespace Tema3
 {
     public partial class Form1 : Form
     {
-        private List<Tesla> teslas;
+        private List<Producto> teslas;
 
         public Form1()
         {
             InitializeComponent();
-            teslas = new List<Tesla>();
+            teslas = new List<Producto>();
         }
 
 
-        //tuto parta que aparezca un boton solo en determinadas circunstancias:
-        //https://www.youtube.com/watch?v=w6wndUVgyLI
-
-        // tut para personalizar:
-        //https://www.youtube.com/watch?v=HDcdX2endE8
 
         private void button1(object sender, EventArgs e)
         {
-            string modelo = comboBox1.Text;
-            int year = Convert.ToInt32(textBox1.Text);
-            int mileage = Convert.ToInt32(textBox2.Text);
-            string color = textBox3.Text;
-            string dueño = textBox4.Text;
+            if (comboBox1.Text == "Modelo X")
+            {
 
-            Tesla tesla = new Tesla(modelo, year, mileage, color, dueño);
-            teslas.Add(tesla);
+                TeslaModelX tesla = new TeslaModelX { Modelo = comboBox1.Text, Año = Convert.ToInt32(textBox1.Text), UnidadDeUso = Convert.ToInt32(textBox2.Text), Color=textBox3.Text,Dueño=textBox4.Text, CargaRestante = 0 };
+                tesla.ObtenerValor(); // muestra la carga restante (no solo del teslaX, tambien del tesla S y del cybertruck)
+                _=tesla.Autonomia;    // muestra la autonomia (no solo del teslaX, tambien del tesla S y del cybertruck)
+                teslas.Add(tesla);    // agrega el tesla a la lista "teslas"
+            }
+            else if(comboBox1.Text == "Modelo S")
+            {
+                TeslaModelS tesla = new TeslaModelS { Modelo = comboBox1.Text, Año = Convert.ToInt32(textBox1.Text), UnidadDeUso = Convert.ToInt32(textBox2.Text), Color = textBox3.Text, Dueño = textBox4.Text, CargaRestante = 0 };
+                teslas.Add(tesla);
+            }
+
+            else
+            {
+                Cybertruck tesla = new Cybertruck { Modelo = comboBox1.Text, Año = Convert.ToInt32(textBox1.Text), UnidadDeUso = Convert.ToInt32(textBox2.Text), Color = textBox3.Text, Dueño = textBox4.Text, CargaRestante = 0 };
+                teslas.Add(tesla);
+
+            }
+            
 
             // Actualizar el contenido del DataGridView
             ActualizarDataGridView();
-
 
             textBox1.Clear();
             textBox2.Clear();
@@ -85,34 +93,47 @@ namespace Tema3
                 MessageBox.Show("ahun no hay sestlas.");
             }
         }
-      
-
-
-
 
 
 
         private void btnMostrar_Click(object sender, EventArgs e)
         {
-            if (teslas.Count > 0)
+            int rowIndex = dataGridView1.SelectedRows[0].Index;
             {
-                string infoVehiculos = "";
-                foreach (Tesla tesla in teslas)
-                {
-                    infoVehiculos += $"Año: {tesla.Year} - Kilometraje: {tesla.Mileage}\n";
-
-
-                }
-
-
-                MessageBox.Show(infoVehiculos);
-                
-            }
-            else
-            {
-                MessageBox.Show("No hay Teslas registrados.");
+                MessageBox.Show($"un tesla {teslas[rowIndex].Color} con una autonomia de {teslas[rowIndex].Autonomia}");
             }
         }
+
+        private void btnMayorKms(object sender, EventArgs e)
+        {
+
+            {
+                MessageBox.Show($"Funcionalidad en construcción");
+            }
+        }
+
+
+        //private void btnMostrar_Click(object sender, EventArgs e)
+        //{
+        //    if (teslas.Count > 0)
+        //    {
+        //        string infoVehiculos = "";
+        //        foreach (Tesla tesla in teslas)
+        //        {
+        //            infoVehiculos += $"Año: {tesla.Year} - Kilometraje: {tesla.Mileage}\n";
+
+
+        //        }
+
+
+        //        MessageBox.Show(infoVehiculos);
+
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("No hay Teslas registrados.");
+        //    }
+        //}
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -125,24 +146,87 @@ namespace Tema3
         }
     }
 
-    public class Tesla
+    public abstract class Producto
     {
         public string Modelo { get; set; }
-        public int Year { get; set; }
-        public int Mileage { get; set; }
+        public int Año { get; set; }
+        public int UnidadDeUso { get; set; }
         public string Color { get; set; }
         public string Dueño { get; set; }
+        public int Autonomia { get; set; }
+        public int Service { get; set; }
 
-        public Tesla(string modelo, int year, int mileage, string color,string dueño )
+
+        public  double CargaRestante
         {
-            Modelo = modelo;
-            Year = year;
-            Mileage = mileage;
-            Color = color;
-            Dueño = dueño;
+            get
+            {
+                int modulo = UnidadDeUso % Autonomia;
+                if (modulo == 0)
+                    return 100;
+                return Math.Round((double)modulo / Autonomia * 100, 2);
+
+            }
+            set
+            {
+
+            }
         }
+
     }
+    /// <summary>
+    /// //////////////////////////////////////////////////////////////////////////////
+    /// </summary>
+    public class TeslaModelX : Producto
+    {
+        public  TeslaModelX()
+        {
+            Autonomia = 560;
+            //Service = 1000;
+        }
+        //public int Asientos { get; set; } = 7;
+
+        public double ObtenerValor()
+        {
+            return CargaRestante;
+        }
+
+    }
+
+    public class TeslaModelS : Producto
+    {
+        public TeslaModelS()
+        {
+            Autonomia = 650;
+            //Service = 2000;
+        }
+
+        //public int Asientos { get; set; } = 5;
+
+        public double ObtenerValor()
+        {
+            return CargaRestante;
+        }
+
+    }
+
+    public class Cybertruck : Producto
+    {
+        public Cybertruck()
+        {
+            Autonomia = 800;
+            //Service = 3000;
+        }
+
+        //public int Asientos { get; set; } = 6;
+
+        public double ObtenerValor()
+        {
+            return CargaRestante;
+        }
+
+    }
+
 }
 
 
-//hola

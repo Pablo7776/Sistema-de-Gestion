@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -36,8 +37,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dueño = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -51,6 +50,13 @@
             this.button3 = new System.Windows.Forms.Button();
             this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mileageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Año = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dueño = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kilometros = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CargaRestante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Autonomia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button4 = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teslaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teslaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -67,9 +73,9 @@
             // Button1
             // 
             this.Button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Button1.Location = new System.Drawing.Point(63, 566);
+            this.Button1.Location = new System.Drawing.Point(25, 763);
             this.Button1.Name = "Button1";
-            this.Button1.Size = new System.Drawing.Size(149, 50);
+            this.Button1.Size = new System.Drawing.Size(149, 47);
             this.Button1.TabIndex = 0;
             this.Button1.Text = "DAR DE ALTA";
             this.Button1.UseVisualStyleBackColor = true;
@@ -112,9 +118,9 @@
             // button2
             // 
             this.button2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button2.Location = new System.Drawing.Point(309, 566);
+            this.button2.Location = new System.Drawing.Point(199, 763);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(180, 50);
+            this.button2.Size = new System.Drawing.Size(180, 47);
             this.button2.TabIndex = 6;
             this.button2.Text = "ESCANEAR";
             this.button2.UseVisualStyleBackColor = true;
@@ -126,35 +132,21 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Modelo,
-            this.yearDataGridViewTextBoxColumn,
-            this.mileageDataGridViewTextBoxColumn,
+            this.Año,
             this.dataGridViewTextBoxColumn1,
-            this.Dueño});
+            this.Dueño,
+            this.kilometros,
+            this.CargaRestante,
+            this.Autonomia});
             this.dataGridView1.DataSource = this.teslaBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(38, 350);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 20;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(692, 142);
+            this.dataGridView1.Size = new System.Drawing.Size(692, 345);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Modelo
-            // 
-            this.Modelo.DataPropertyName = "Modelo";
-            this.Modelo.HeaderText = "Modelo";
-            this.Modelo.MinimumWidth = 8;
-            this.Modelo.Name = "Modelo";
-            this.Modelo.Width = 70;
-            // 
-            // Dueño
-            // 
-            this.Dueño.DataPropertyName = "Dueño";
-            this.Dueño.HeaderText = "Dueño";
-            this.Dueño.MinimumWidth = 8;
-            this.Dueño.Name = "Dueño";
-            this.Dueño.Width = 70;
             // 
             // comboBox1
             // 
@@ -175,7 +167,7 @@
             this.tabControl1.Location = new System.Drawing.Point(21, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(767, 548);
+            this.tabControl1.Size = new System.Drawing.Size(767, 745);
             this.tabControl1.TabIndex = 9;
             // 
             // tabPage1
@@ -196,13 +188,13 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(759, 515);
+            this.tabPage1.Size = new System.Drawing.Size(759, 712);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "TESLA";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Tema3.Properties.Resources.Tesla;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(38, 29);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(194, 252);
@@ -256,16 +248,16 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(759, 515);
+            this.tabPage2.Size = new System.Drawing.Size(759, 712);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "SPACEX";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(583, 566);
+            this.button3.Location = new System.Drawing.Point(405, 763);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(172, 50);
+            this.button3.Size = new System.Drawing.Size(172, 47);
             this.button3.TabIndex = 10;
             this.button3.Text = "DAR DE BAJA";
             this.button3.UseVisualStyleBackColor = true;
@@ -287,6 +279,66 @@
             this.mileageDataGridViewTextBoxColumn.Name = "mileageDataGridViewTextBoxColumn";
             this.mileageDataGridViewTextBoxColumn.Width = 70;
             // 
+            // Modelo
+            // 
+            this.Modelo.DataPropertyName = "Modelo";
+            this.Modelo.HeaderText = "Modelo";
+            this.Modelo.MinimumWidth = 8;
+            this.Modelo.Name = "Modelo";
+            this.Modelo.Width = 70;
+            // 
+            // Año
+            // 
+            this.Año.DataPropertyName = "Año";
+            this.Año.HeaderText = "Año";
+            this.Año.MinimumWidth = 8;
+            this.Año.Name = "Año";
+            this.Año.Width = 150;
+            // 
+            // Dueño
+            // 
+            this.Dueño.DataPropertyName = "Dueño";
+            this.Dueño.HeaderText = "Dueño";
+            this.Dueño.MinimumWidth = 8;
+            this.Dueño.Name = "Dueño";
+            this.Dueño.Width = 70;
+            // 
+            // kilometros
+            // 
+            this.kilometros.DataPropertyName = "UnidadDeUso";
+            this.kilometros.HeaderText = "kilometros";
+            this.kilometros.MinimumWidth = 8;
+            this.kilometros.Name = "kilometros";
+            this.kilometros.Width = 150;
+            // 
+            // CargaRestante
+            // 
+            this.CargaRestante.DataPropertyName = "CargaRestante";
+            this.CargaRestante.HeaderText = "CargaRestante";
+            this.CargaRestante.MinimumWidth = 8;
+            this.CargaRestante.Name = "CargaRestante";
+            this.CargaRestante.ReadOnly = true;
+            this.CargaRestante.Width = 150;
+            // 
+            // Autonomia
+            // 
+            this.Autonomia.DataPropertyName = "Autonomia";
+            this.Autonomia.HeaderText = "Autonomia";
+            this.Autonomia.MinimumWidth = 8;
+            this.Autonomia.Name = "Autonomia";
+            this.Autonomia.Width = 150;
+            // 
+            // button4
+            // 
+            this.button4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button4.Location = new System.Drawing.Point(604, 763);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(180, 47);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "MAYOR KMS";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.btnMayorKms);
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Color";
@@ -297,23 +349,24 @@
             // 
             // teslaBindingSource
             // 
-            this.teslaBindingSource.DataSource = typeof(Tema3.Tesla);
+            this.teslaBindingSource.DataSource = typeof(Tema3.Producto);
             // 
             // teslaBindingSource1
             // 
-            this.teslaBindingSource1.DataSource = typeof(Tema3.Tesla);
+            this.teslaBindingSource1.DataSource = typeof(Tema3.Producto);
             // 
             // teslaBindingSource2
             // 
-            this.teslaBindingSource2.DataSource = typeof(Tema3.Tesla);
+            this.teslaBindingSource2.DataSource = typeof(Tema3.Producto);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 638);
+            this.ClientSize = new System.Drawing.Size(800, 820);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.Button1);
             this.Name = "Form1";
@@ -353,12 +406,17 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Modelo;
         private System.Windows.Forms.DataGridViewTextBoxColumn yearDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn mileageDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Modelo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Año;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dueño;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kilometros;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CargaRestante;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Autonomia;
+        private System.Windows.Forms.Button button4;
     }
 }
 
